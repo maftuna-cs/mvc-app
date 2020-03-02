@@ -1,0 +1,141 @@
+<section>
+  <div class="intro-image"></div>
+  <div class="form-wrap book">
+    <h1>Book unique places to stay and things to do.</h1>
+
+    <form action="">
+
+      <div class="location">
+        <label for="location">WHERE</label><br /><br />
+        <select>
+          <option value="0">Select location:</option>
+          <option value="1">Alberta</option>
+          <option value="2">British Columbia</option>
+          <option value="3">Manitoba</option>
+          <option value="4">Ontario</option>
+          <option value="5">Quebec</option>
+          <option value="6">Nova Scotia</option>
+        </select>
+      </div>
+
+
+      <div class="dates book">
+        <div class="arrival">
+          <label for="arrival">CHECK-IN</label><br />
+          <input name="arrival" type="text" onfocus="(this.type='date')" onblur="(this.type='text')"
+            placeholder="28/01/2020" />
+        </div>
+        <div class="departure">
+          <label for="arrival">CHECKOUT</label><br />
+          <input name="departure" type="text" onfocus="(this.type='date')" onblur="(this.type='text')"
+            placeholder="01/03/2020" />
+        </div>
+      </div>
+
+      <div class="location">
+        <label for="guests">GUESTS</label><br /><br />
+        <select>
+          <option value="0">Number of guests:</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+        </select>
+      </div>
+
+      {{!-- <div class="guests book">
+        <label for="guests">GUESTS</label><br /><br />
+        <button class="counter-btn" type="button" id="cnt-down">-</button>
+        <input type="text" id="guestNo" name="guests" value="2" />
+        <button class="counter-btn" type="button" id="cnt-up">+</button>
+      </div> --}}
+
+    </form>
+    <a href="/room-listing"><button class="btn" type="button">BOOK NOW</button></a>
+  </div>
+</section>
+
+<section class="features">
+  <div>
+    <a href="#"><img src="/img/adv-icon.png" alt="advanture icon" class="main-icons"></a>
+    <p>Advantures</p>
+  </div>
+  <div><a href="#"><img src="/img/places-icon.png" alt="advanture icon" class="main-icons"></a>
+    <p>Places to Visit</p>
+  </div>
+
+  <div>
+    <a href="#"><img src="/img/things-icon.png" alt="advanture icon" class="main-icons"></a>
+    <p>Things to Do</p>
+  </div>
+</section>
+<section class="places">
+  <h2>Discover Featured Places</h2>
+  <div class="box-1">
+    <!-- wrapper; display:grid; max-width, grid-template-columns, margin: 0 auto;-->
+    <div class="box-styling">
+      <!-- background color white; margin .25em -->
+      <img src="img/adv-2.jpeg" class="img">
+      <h3>Explore Bahamas</h3>
+      <p>(5)<span class="fa fa-star checked"></span></p>
+    </div>
+
+    <div class="box-styling">
+      <img src="img/adv-3.jpeg" class="img">
+      <h3>Advanture 2</h3>
+      <p>(5)<span class="fa fa-star checked"></p>
+    </div>
+
+    <div class="box-styling">
+      <img src="img/adv-4.jpg" class="img">
+      <h3>Explore Asia</h3>
+      <p>(5)<span class="fa fa-star checked"></p>
+    </div>
+
+    <div class="box-styling">
+      <img src="img/adv-5.jpg" class="img">
+      <h3>Explore Mediterranean</h3>
+      <p>(5)<span class="fa fa-star checked"></p>
+    </div>
+  </div>
+</section>
+
+<section class="video-sec">
+  <div class="container">
+    <video src="img/motionplaces0045-c007-q001-Oct2018.mp4" autoplay="true" loop="true"></video>
+    <div class="overlay-txt">
+      <h4 class="video-content">Explore and Enjoy the breathtaking moments</h3>
+    </div>
+  </div>
+
+  <div class="container">
+    <video src="img/181015_Extra_DanangDrone_004.mp4" autoplay="true" loop="true"></video>
+    <div class="overlay-txt">
+      <h4 class="video-content">Explore and Enjoy the breathtaking moments</h3>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+
+
+
+  <div class="newslet-container">
+    <h2 class="newslet-header">
+      Brief info about ROOF
+      <div class="style"></div>
+    </h2>
+    <p class="newslet-p">
+      Roof is a global media commerce company. With more than 28 million members in North America, Europe, and Asia
+      Pacific and 25 offices worldwide, Roof publishes offers from more than 2,000 travel, entertainment and local
+      companies. Roof's deal experts review offers to find the best deals and confirm their true value.
+
+      While it does cost companies money to have their deals listed on Roof, no amount of money ensures that a deal
+      will get listed.
+    </p>
+  </div>
+  <div class="about-bg"></div>
+
+</section>

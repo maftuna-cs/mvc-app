@@ -2,9 +2,10 @@
   "name": "mvc-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,13 @@
   },
   "homepage": "https://github.com/maftuna-cs/mvc-app#readme",
   "dependencies": {
+    "@sendgrid/mail": "^6.5.3",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "json": "^9.0.6"
+    "express-handlebars": "^3.1.0",
+    "fs": "0.0.1-security",
+    "json": "^9.0.6",
+    "module_name": "^1.0.0",
+    "twilio": "^3.39.5"
   }
 }

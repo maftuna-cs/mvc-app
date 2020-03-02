@@ -1,0 +1,29 @@
+<div>
+  <form action="/sign-in" method="POST" id="login-form">
+    <div class="left">
+
+      <label for="email">Email</label> <br />
+      <input type="email" name="eMail" id="email" /> <br />
+      <p class="error-msg"> {{signin.eMail}}</p>
+
+      <label for="password">Password</label> <br />
+      <input type="password" name="passw" id="pass" /> <br />
+      <p class="error-msg"> {{signin.passw}}</p>
+
+      <input type="submit" value="Login" />
+    </div>
+
+    <div class="right">
+      <div class="connect">Connect with</div>
+      <a href="" class="email">
+        <i class="fas fa-envelope fa-lg"></i>
+      </a> <br />
+      <a href="" class="fb">
+        <i class="fab fa-facebook fa-lg"></i>
+      </a> <br />
+      <a href="" class="google-plus">
+        <i class="fab fa-google-plus-square fa-lg"></i>
+      </a>
+    </div>
+  </form>
+</div>
