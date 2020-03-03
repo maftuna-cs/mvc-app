@@ -6,25 +6,31 @@ const featuredRoom =
     init() {
 
         this.fakeDB.push({
-            title: 'Future Students', 
-            description: `Explore our full-time and continuing education programs. Find out how a Humber education will help you chart a sure path to your career.`, 
-            imgURL: `https://images.unsplash.com/photo-1507537509458-b8312d35a233?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80`
+            title: 'Charming Apt', 
+            description: `Modern open plan super spacious penthouses in historic Cape Town`,
+            price: `1904`, 
+            rate: `(5)`,
+            imgURL: `https://images.unsplash.com/photo-1554995207-c18c203602cb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80`
         });
 
         this.fakeDB.push({
-            title: 'Current Students', 
-            description: `Take advantage of unique student resources, work-integrated learning, study abroad opportunities and program pathways.`, 
-            imgURL: `https://images.unsplash.com/photo-1567168544230-d5a9401299a4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80`
+            title: 'Turenne Place', 
+            description: ` The big patio with jacuzzi bath is ideal to watch the sunset and the city lights. `,
+            price: `350`, 
+            rate: `(5)`,
+            imgURL: `https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80`
         });
 
         this.fakeDB.push({
-            title: 'Careers', 
-            description: `Partner with us – we can help with student work placements and industry research projects. We also deliver training solutions.`, 
-            imgURL: `https://images.unsplash.com/photo-1561489422-45de3d015e3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80`
+            title: 'Park Plaza', 
+            description: `Separate scullery/ laundry & full open plan kitchen & shared pool`, 
+            price: `499`,
+            rate: `(5)`,
+            imgURL: `https://images.unsplash.com/photo-1519643381401-22c77e60520e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80`
         });
 
     },
-    getaFeaturedRooms() {  // method // return the array
+    getallFeaturedRooms() {  // method // return the array
         return this.fakeDB;
     }
 

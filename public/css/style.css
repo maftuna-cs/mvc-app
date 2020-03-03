@@ -1076,6 +1076,19 @@ div.right a.google-plus:hover {
 }
 
 
+
+.box-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1em;
+  margin-bottom: 1em;
+  margin-left: 2em;
+  margin-right: 2em;
+} 
+.box {
+  margin-bottom: 0;
+}
+
 .box-container {
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
@@ -1107,12 +1120,13 @@ div.right a.google-plus:hover {
 
 
 .box h2 {
-  color: #F5B944;
+  color: #263459;
+  padding-top:1em;
 }
 
 .style-under {
   
-  background-color: #F5B944;
+  background-color: #263459;
   height: .125em;
   margin: 1em auto;
   width: 1.6em;
@@ -1129,7 +1143,7 @@ div.right a.google-plus:hover {
 }
 
 .box-btn{
-  background: #F5B944;
+  background: #263459;
   color: #fff;
 }
 
@@ -1139,6 +1153,168 @@ div.right a.google-plus:hover {
   letter-spacing: 0.1em;
 }
 
+.prg-title {
+  color: #263459;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 2em;
+  margin-top: 1em;
+
+}
+
+.divider {
+  background-color: #F3C4C3;
+  height: .2em;
+  margin: .5em auto;
+  width: 4em;
+}
+
+.prc {
+  color: rgb(248, 175, 174);
+}
+
+.featured-prc {
+  color: #3498db;
+}
+
+.orange {
+  color: #f58026;
+}
+
+.blue{
+  color: #67a2b9;
+}
+
+.green {
+  color: #7A9C4E;
+}
+
+.user-essentials h2, .red {
+  color: #D74022;
+}
+
+.materials {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1em;
+  margin: 2em;
+}
+
+.materials li a {
+  display: block;
+  background-color: white;
+  text-align: center;
+  padding: 1em 0;
+  font-size: 1.25em;
+  font-weight: 600;
+  box-shadow: 0 3px 15px rgba(51, 51, 51, 0.2);
+}
+
+.dashb {
+  text-align: center;
+  padding-bottom: 1em;
+  margin-bottom: 2em;
+}
+
+.dashb h2 {
+  font-size: 2em;
+  padding: 1em;
+}
+
+.dashb-p {
+  background-image: linear-gradient(#16257bd0, #6d6c6c, transparent),url("https://images.unsplash.com/photo-1492138645880-160f6a5136fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+  min-height: 400px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: background 0.5s, border 0.3s, border-radius 0.3s, box-shadow 0.5s;
+  padding: 80px;
+  color: white;
+}
+
+
+.dashb-btn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 1em;
+  cursor: pointer;
+  border: 2px solid white;
+  transition: 0.3s all ease-in-out;
+  text-transform: uppercase;
+  margin-top: 2em;
+}
+
+.dashb-btn:hover, .prg-btn:hover {
+  border-radius: .8em;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+  color: #615e5e;
+  background: white;
+}
+
+.gallery{
+  margin-bottom: 2em;
+}
+.gallery h3 {
+  position: relative;
+  font-size: 2.5em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 1em;
+  color: #263459;
+}
+
+.gallery-title {
+  font-size: .8em;
+  
+}
+.gallery-wrap {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 70vh;
+}
+
+.item {
+  flex: 1;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: none;
+  transition: flex 0.8s ease;
+}
+.item:hover {
+  flex: 7;
+}
+
+.item-1 {
+  background-image: url("https://images.unsplash.com/photo-1540000592003-2786d612ef0e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80");
+}
+
+.item-2 {
+  background-image: url("https://images.unsplash.com/photo-1537456204312-b6b74c785065?ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80");
+}
+
+.item-3 {
+  background-image: url("https://images.unsplash.com/photo-1533008093099-e2681382639a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=802&q=80");
+}
+
+.item-4 {
+  background-image: url("https://images.unsplash.com/photo-1567408773508-4e5da32afafd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80");
+}
+
+.item-5 {
+  background-image: url("https://images.unsplash.com/photo-1543248939-ff40856f65d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80");
+}
 
 
 
@@ -1396,5 +1572,25 @@ div.right a.google-plus:hover {
     font-size: .7em;
     padding-bottom: .5em;
   } 
+
+
+
+  .box-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1em;
+    margin-bottom: 4em;
+    margin-left: 2em;
+    margin-right: 2em;
+  } 
+  .box {
+    margin-bottom: 0;
+  }
+
+  .materials {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-left:0;
+  }
 }
 

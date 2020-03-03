@@ -15,19 +15,19 @@ router.get("/list",(req, res) => {
     });
  });
 
- //show add roomlist form
-  router.get("/add",(req,res)=>{
+//  //show add roomlist form
+//   router.get("/add",(req,res)=>{
   
-    res.render("rooms/room-listingAdd", {
-        title: "Room Listing Add Form",
-        description: "Room Listing Add Form"
-    });
-});
+//     res.render("rooms/room-listingAdd", {
+//         title: "Room Listing Add Form",
+//         description: "Room Listing Add Form"
+//     });
+// });
 
-//When the form is submitted 
-router.post("/add",(req,res)=>{
+// //When the form is submitted 
+// router.post("/add",(req,res)=>{
   
-      //res.render();
-});
+//       //res.render();
+// });
 
 module.exports = router;

@@ -83,6 +83,33 @@
     <p>Things to Do</p>
   </div>
 </section>
+
+<section>
+  <div class="divider"></div>
+  <h2 class="prg-title">Explore Top Rated Rooms</h2>
+
+<div class="box-container">
+  
+            {{#each featuredRoom}}
+            <div class="box">
+                <img class="box-img" src="{{this.imgURL}} " alt="{{this.title}}">
+                <h2>
+                    {{this.title}}
+                    <div class="style-under"></div>
+                </h2>
+                <p>{{this.description}}</p>
+                <p class="featured-prc">$ <strong class="prc">{{this.price}}</strong> / pernight</p>
+                <p>{{this.rate}}<span class="fa fa-star checked"></span></p>
+                <a href="{{this.link}}">
+                    <div class="box-btn">
+                        <div class="box-btn--txt">Book Now</div>
+                    </div>
+                </a>
+            </div>
+            {{/each}}
+   </div>
+   </section>
+
 <section class="places">
   <h2>Discover Featured Places</h2>
   <div class="box-1">
@@ -113,6 +140,25 @@
     </div>
   </div>
 </section>
+
+  <section>
+    <div class="divider"></div>
+    <div class="gallery">
+      <h3>
+        <span class="gallery-title">Must to See</span>
+        <br>
+        
+      </h3>
+  
+      <div class="gallery-wrap">
+        <div class="item item-1"></div>
+        <div class="item item-2"></div>
+        <div class="item item-3"></div>
+        <div class="item item-4"></div>
+        <div class="item item-5"></div>
+      </div>
+    </div>
+  </section>
 
 {{!-- <section class="video-sec">
   <div class="container">
@@ -149,6 +195,8 @@
   <div class="about-bg"></div>
 
 </section>
+
+
 
 <script src="/js/featured-room.js"></script>
 </body>

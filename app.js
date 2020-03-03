@@ -5,42 +5,45 @@ const bodyParser = require('body-parser');
 //load the environment variable file
 require('dotenv').config({path:"./config/keys.env"});
 
-
+const infoModel = require("./models/featured-room");
 
 const app = express(); //express app object
-
 
 app.use(express.static('public'));
 
 app.use(bodyParser.urlencoded({ extended: false })); //parse app
 
-
 app.engine('handlebars', exphbs());   //middleware
 app.set('view engine', 'handlebars');
 
 //load controllers
-const generalController = require("./controllers/general");
+// const generalController = require("./controllers/general");
 const roomsController = require("./controllers/room");
 
 //map each controller to the app object 
-app.use("/",generalController);
 app.use("/rooms",roomsController);
 
-const infoModel = require("./models/featured-room");
-
-
-// routs
 
 app.get("/", (req, res) => {
-
-  res.render("featured-room", {
-    title: "Featured Room",
-    headingInfo: "Featured Room Page",
-    info: infoModel.getallFeaturedRooms()
+  res.render("index", {
+    title: "Home",
+    headingInfo: "Home",
+    randomContent: "Home",
+    featuredRoom: infoModel.getallFeaturedRooms()
   });
 
 });
 
+app.get("/user-dashboard", (req,res) => {
+
+  res.render("user-dashboard", {
+      title:"Dashboard",
+      headingInfo: "Dashboard",
+      randomContent: "Dashboard"
+     
+  });
+
+});
 
 app.get("/user-registration", (req, res) => {
 
@@ -78,18 +81,13 @@ app.post("/sign-up", (req, res) => {
 
   }
 
-  // if (req.body.birthDate.value == undefined) {
-  //   errors.birthDate = "Sorry, you must enter date of birth";
-
-  // }
-
-  if (req.body.email == "") {
-    errors.email = "Sorry, you must enter email address";
+  if (req.body.birthDate == "") {
+    errors.birthDate = "Sorry, you must enter date of birth";
 
   }
 
-  if (req.body.phoneNo == "") {
-    errors.email = "Sorry, you must enter phone number";
+  if (req.body.email == "") {
+    errors.email = "Sorry, you must enter email address";
 
   }
 
@@ -109,63 +107,112 @@ app.post("/sign-up", (req, res) => {
   }
 
 
-  if (errors.firstName || errors.lastName || errors.birthDate || errors.email || errors.phoneNo || errors.password) {
+  if (errors.firstName || errors.lastName || errors.birthDate || errors.email || errors.password) {
     res.render("sign-up", {
       inputs: errors
     })
   }
 
   else
-  {
-    const accountSid = 'ACe443f135d14d2cef886b2094dd793c40';
-    const authToken = 'bd9005811c66cf751c0dce39c3818650';
-    const client = require('twilio')(accountSid, authToken);
-    
-    client.messages
-      .create({
-         body: `${req.body.firstName} ${req.body.lastName} Message :${req.body.birthDate}`,
-         from: '+14147518445',
-         to: `${req.body.phoneNo}`
-       })
-      .then(message => {
-        console.log(message.sid);
-        res.render("sign-up");
-      })
-      .catch((err)=>{
-          console.log(`Error ${err}`);
-      })
+    {
 
-  }
+        // const {firstName,lastName,email} = req.body;
+        const sgMail = require('@sendgrid/mail');
+        sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
+        const accountSid = 'ACe443f135d14d2cef886b2094dd793c40';
+        const authToken = 'bd9005811c66cf751c0dce39c3818650';
+        const client = require('twilio')(accountSid, authToken);
+        const msg = {
+        to: 'kh.maftu@gmail.com',
+        from: `${req.body.email}`,
+        subject: 'SendGrid',
+        text: 'Welcome',
+        html:
+         `Visitor's Full Name ${req.body.firstName} ${req.body.lastName} <br>
+         `,
+        };
+        sgMail.send(msg)
+        .then(message => {
+          console.log(message.sid);
+          res.redirect("user-dashboard");
+        })
+        .catch((err)=>{
+            console.log(`Error ${err}`);
+        }),
 
-
-  // else {
-  //   res.render("userdashboard");
-  // }
-
+      
+      client.messages
+        .create({
+           body: `${req.body.firstName} ${req.body.lastName} Message :${req.body.birthDate}`,
+           from: '+14147518445',
+           to: `${req.body.phoneNo}`
+         })
+        .then(message => {
+          console.log(message.sid);
+          res.render("user-dashboard");
+        })
+        .catch((err)=>{
+            console.log(`Error ${err}`);
+        })
+  }             
+  
 });
 
-app.post("/sign-in", (req, res) => {
+// app.post("/sign-in", (req, res) => {
 
-  const errors = {};
+//   const errors = {};
 
-  if (req.body.eMail == "") {
-    console.log('has error')
-    errors.eMail = "Please, enter email address";
+//   if (req.body.eMail == "") {
+//     console.log('has error')
+//     errors.eMail = "Please, enter email address";
 
-  }
+//   }
 
-  if (req.body.passw == "") {
-    errors.passw = "Please, enter password";
+//   if (req.body.passw == "") {
+//     errors.passw = "Please, enter password";
 
-  }
+//   }
 
 
-  if (errors.eMail || errors.passw) {
-    res.render("sign-in", {
-      signin: errors
-    })
-  }
-});
+//   if (errors.eMail || errors.passw) {
+//     res.render("sign-in", {
+//       signin: errors
+//     })
+//   }
+  
+//   });
+  
+//   app.post("/sign-in", (req, res) => {
+  
+//     const errors = {};
+  
+//     if (req.body.eMail == "") {
+//       console.log('has error')
+//       errors.eMail = "Please, enter email address";
+  
+//     }
+  
+//     if (req.body.passw == "") {
+//       errors.passw = "Please, enter password";
+  
+//     }
+  
+  
+//     if (errors.eMail || errors.passw) {
+//       res.render("sign-in", {
+//         signin: errors
+//       })
+//     }
+
+
+// });
+
+
+
+
+
+
+
 
 
 const PORT = process.env.PORT;
