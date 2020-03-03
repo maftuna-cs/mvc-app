@@ -1,0 +1,24 @@
+<section class="room-list-header">
+    <h1> Featured Rooms</h1>
+</section>
+<section class="room-list">
+    {{#each products}}
+
+    <div class="room-list-items">
+        <img src="{{this.imgURL}}" alt="{{this.title}}" class="post-image" srcset="">
+
+        <p class="room-list-title">
+            {{this.title}}
+        </p>
+
+        <p class="room-list-desc">
+            {{this.description}}
+        </p>
+
+        <p class="room-list-price">
+            $ {{this.price}} / per night
+        </p>
+    </div>
+
+    {{/each}}
+</section>

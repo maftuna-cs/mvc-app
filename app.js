@@ -26,10 +26,22 @@ const roomsController = require("./controllers/room");
 app.use("/",generalController);
 app.use("/rooms",roomsController);
 
-
+const infoModel = require("./models/featured-room");
 
 
 // routs
+
+app.get("/", (req, res) => {
+
+  res.render("featured-room", {
+    title: "Featured Room",
+    headingInfo: "Featured Room Page",
+    info: infoModel.getallFeaturedRooms()
+  });
+
+});
+
+
 app.get("/user-registration", (req, res) => {
 
   res.render("user-registration", {
