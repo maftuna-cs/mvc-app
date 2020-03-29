@@ -1,6 +1,7 @@
 const express = require("express");//import the express package (installed)
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 //load the environment variable file
 require('dotenv').config({path:"./config/keys.env"});
@@ -213,7 +214,7 @@ app.post("/sign-up", (req, res) => {
 
 
 
-
+mongoose.connect(process.env.MONGO_DB_CONNECTION_STRING, {useNewUrlParser: true, useUnifiedTopology: true});
 
 const PORT = process.env.PORT;
 app.listen(PORT , ()=>{
