@@ -20,9 +20,14 @@ app.set('view engine', 'handlebars');
 //load controllers
 // const generalController = require("./controllers/general");
 const roomsController = require("./controllers/room");
+const userRoutes = require("./controllers/User");
 
 //map each controller to the app object 
 app.use("/rooms",roomsController);
+
+app.use("/user-reg",userRoutes);
+
+
 
 
 app.get("/", (req, res) => {
@@ -214,7 +219,13 @@ app.post("/sign-up", (req, res) => {
 
 
 
-mongoose.connect(process.env.MONGO_DB_CONNECTION_STRING, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(process.env.MONGO_DB_CONNECTION_STRING, {useNewUrlParser: true, useUnifiedTopology: true})
+.then(()=>{
+  console.log(`Connected to MongoDB DataBase`);
+
+})
+.catch(err=>console.log(`Error occured when connecting to database ${err}`));
+
 
 const PORT = process.env.PORT;
 app.listen(PORT , ()=>{
