@@ -20,7 +20,7 @@ app.set('view engine', 'handlebars');
 //load controllers
 // const generalController = require("./controllers/general");
 const roomsController = require("./controllers/room");
-const userRoutes = require("./controllers/User");
+const userRoutes = require("./controllers/user");
 
 //map each controller to the app object 
 app.use("/rooms",roomsController);

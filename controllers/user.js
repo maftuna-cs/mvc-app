@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router();
+const userModel = require("../models/user");
 
 
 //Route to direct use to Registration form
@@ -11,6 +12,20 @@ router.get("/register",(req,res)=>
 //Route to process user's request and data when user submits registration form
 router.post("/register",(req,res)=>
 { 
+    const newUser = {
+        firstName:req.body.firstName,
+        lastName:req.body.lastName,
+        email:req.body.email,
+        password:req.body.password
+    }
+
+    const user = new userModel(newUser);
+    user.save()
+    .then(()=>{
+        res.redirect("/user-reg/profile")
+    })
+    .catch(err=>console.log(`Error while inserting into data ${err}`));
+
  
 });
 
@@ -29,11 +44,10 @@ router.post("/login",(req,res)=>
 
 
 
-router.get("/profile/",(req,res)=>{
+router.get("/profile",(req,res)=>{
 
     res.render("user-reg/userDashboard");
-})
-
+});
 
 
 module.exports=router;
