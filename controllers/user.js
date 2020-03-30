@@ -43,10 +43,34 @@ router.post("/login",(req,res)=>
 });
 
 
-
 router.get("/profile",(req,res)=>{
 
-    res.render("user-reg/userDashboard");
+    userModel.find()
+    .then((userData)=>{
+
+        const filteredUser = userData.map(result=>{
+
+            return {
+
+                firstName: result.firstName,
+                lastName: result.lastName
+
+            }
+            
+        });
+
+
+        res.render("user-reg/userDashboard",{
+
+            data: filteredUser
+           
+        });
+    
+})
+    .catch(err=>console.log(`Error happened when pulling from the database: ${err}`));
+
+
+    
 });
 
 

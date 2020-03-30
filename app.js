@@ -74,6 +74,8 @@ app.get("/sign-up", (req, res) => {
 
 app.post("/sign-up", (req, res) => {
 
+
+
   const errors = {};
 
   if (req.body.firstName == "") {
