@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router();
 const userModel = require("../models/user");
-const path = require("path");
 
 
 //Route to direct use to Registration form
@@ -22,9 +21,7 @@ router.post("/register",(req,res)=>
 
     const user = new userModel(newUser);
     user.save()
-    .then((user)=>{
-
-        req.files.profilePic.name = `pro_pic_${user._id}${path.parse(req.files.profilePic.name).ext}`;
+    .then(()=>{
         res.redirect("/user-reg/profile")
     })
     .catch(err=>console.log(`Error while inserting into data ${err}`));

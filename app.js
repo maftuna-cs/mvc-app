@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const fileupload = require('express-fileupload');
+const session = require('express-session');
 
 //load the environment variable file
 require('dotenv').config({path:"./config/keys.env"});
@@ -24,6 +25,12 @@ const roomsController = require("./controllers/room");
 const userRoutes = require("./controllers/user");
 
 app.use(fileupload());
+
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+}))
 
 //map each controller to the app object 
 app.use("/rooms",roomsController);
