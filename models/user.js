@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const bcrypt = require("bcryptjs");
 
 const userSchema = new Schema ({
 
@@ -29,6 +30,23 @@ const userSchema = new Schema ({
 
 });
 
+userSchema.pre("save",function(next)
+{
+    //salt random generated characters or strings
+    bcrypt.genSalt(10)
+    .then((salt)=>{
+
+        bcrypt.hash(this.password,salt)
+        .then((encryptPassword)=>{
+            this.password = encryptPassword;
+            next();
+        })
+        .catch(err=>console.log(`Error occured when use hash ${err}`));
+
+    })
+    .catch(err=>console.log(`Error occured when salting ${err}`));
+
+})
 const userModel = mongoose.model('user', userSchema);
 
 module.exports = userModel;
