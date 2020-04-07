@@ -2,6 +2,7 @@ const express = require("express");//import the express package (installed)
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const fileupload = require('express-fileupload');
 
 //load the environment variable file
 require('dotenv').config({path:"./config/keys.env"});
@@ -21,6 +22,8 @@ app.set('view engine', 'handlebars');
 // const generalController = require("./controllers/general");
 const roomsController = require("./controllers/room");
 const userRoutes = require("./controllers/user");
+
+app.use(fileupload());
 
 //map each controller to the app object 
 app.use("/rooms",roomsController);
