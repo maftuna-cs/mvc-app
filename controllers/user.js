@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router();
 const userModel = require("../models/user");
+const bcrypt = require("bcryptjs");
 
 
 //Route to direct use to Registration form
@@ -39,7 +40,45 @@ router.get("/login",(req,res)=>
 router.post("/login",(req,res)=>
 {
 
-    res.redirect("/user-reg/profile/")
+    userModel.findOne({email:req.body.email})
+    .then(user=>{
+
+        const errors= [];
+        if(user==null) {
+
+            errors.push("Sorry, your email and/or password incorrect")
+            res.render("user-reg/login",{
+                errors
+            })
+
+        }
+
+        else {
+
+            bcrypt.compare(req.body.password, user.password)
+            .then(isMatched=>{
+                
+                if(isMatched){
+                    
+                    req.session.userData = user;
+                    res.redirect("/user-reg/profile")
+                }
+
+                else {
+
+                    errors.push("Sorry, your email and/or password incorrect")
+                    res.render("user-reg/login",{
+                        errors
+                    })
+                }
+            })
+            .catch(err=>console.log(`Error ${err}`));
+
+        }
+    })
+    .catch(err=>console.log(`Error ${err}`));
+
+    
 });
 
 
@@ -72,6 +111,12 @@ router.get("/profile",(req,res)=>{
 
     
 });
+
+router.get("/logout",(req,res)=>{
+    req.session.destroy();
+    res.redirect("/user-reg/login")
+
+})
 
 
 module.exports=router;

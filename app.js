@@ -27,10 +27,17 @@ const userRoutes = require("./controllers/user");
 app.use(fileupload());
 
 app.use(session({
-  secret: 'keyboard cat',
+  secret: `${process.env.SECRET_KEY}`,
   resave: false,
   saveUninitialized: true
 }))
+
+app.use((req,res,next)=>{
+
+  res.locals.user= req.session.userData;
+
+  next();
+})
 
 //map each controller to the app object 
 app.use("/rooms",roomsController);
