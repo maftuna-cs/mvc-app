@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router();
 const userModel = require("../models/user");
 const bcrypt = require("bcryptjs");
+const isAuthenticated = require("../middleware/auth");
 
 
 //Route to direct use to Registration form
@@ -44,6 +45,7 @@ router.post("/login",(req,res)=>
     .then(user=>{
 
         const errors= [];
+
         if(user==null) {
 
             errors.push("Sorry, your email and/or password incorrect")
@@ -61,7 +63,7 @@ router.post("/login",(req,res)=>
                 if(isMatched){
                     
                     req.session.userData = user;
-                    res.redirect("/user-reg/profile")
+                    res.redirect("/user-reg/profile");
                 }
 
                 else {
@@ -82,35 +84,41 @@ router.post("/login",(req,res)=>
 });
 
 
-router.get("/profile",(req,res)=>{
+// router.get("/profile",(req,res)=>{
 
-    userModel.find()
-    .then((userData)=>{
+//     userModel.find()
+//     .then((userData)=>{
 
-        const filteredUser = userData.map(result=>{
+//         const filteredUser = userData.map(result=>{
 
-            return {
+//             return {
 
-                firstName: result.firstName,
-                lastName: result.lastName
+//                 firstName: result.firstName,
+//                 lastName: result.lastName
 
-            }
+//             }
             
-        });
+//         });
 
 
-        res.render("user-reg/userDashboard",{
+//         res.render("user-reg/userDashboard",{
 
-            data: filteredUser
+//             data: filteredUser
            
-        });
+//         });
+    
+// })
+//     .catch(err=>console.log(`Error happened when pulling from the database: ${err}`));
+
+
+    
+// });
+
+router.get("/profile",isAuthenticated,(req,res)=> {
+
+    res.render("user-reg/userDashboard");
     
 })
-    .catch(err=>console.log(`Error happened when pulling from the database: ${err}`));
-
-
-    
-});
 
 router.get("/logout",(req,res)=>{
     req.session.destroy();
