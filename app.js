@@ -24,6 +24,7 @@ app.set('view engine', 'handlebars');
 const roomsController = require("./controllers/room");
 const userRoutes = require("./controllers/user");
 
+
 app.use(fileupload());
 
 app.use(session({
@@ -43,6 +44,9 @@ app.use((req,res,next)=>{
 app.use("/rooms",roomsController);
 
 app.use("/user-reg",userRoutes);
+
+
+
 
 
 

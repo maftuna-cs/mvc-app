@@ -6,7 +6,7 @@ const dashboardLoader = (req,res)=>{
     }
 
     else {
-        res.render("user-reg/profile")
+        res.render("user-reg/userDashboard")
     }
 
 }

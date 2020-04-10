@@ -1,0 +1,33 @@
+<h2>Rooms</h2>
+
+<section class="room-list">
+
+ {{#each data}}
+
+    <div class="room-list-items">
+
+        <img src="/uploads/{{this.profilePic}}"> 
+
+        <p class="room-list-title">
+            {{this.title}}
+        </p>
+
+            {{this.price}}
+        </p>
+
+        <p class="room-list-desc">
+            {{this.description}}
+        </p>
+
+         <p class="room-list-desc">
+            {{this.location}}
+        </p>
+
+        <p class="room-list-price">
+             {{this.roomFeatured}} 
+        </p>
+    </div>
+
+    {{/each}}
+
+    </section>
