@@ -3,6 +3,7 @@ const router = express.Router();
 const userModel = require("../models/user");
 const bcrypt = require("bcryptjs");
 const isAuthenticated = require("../middleware/auth");
+const dashBoardLoader = require("../middleware/authorization");
 
 
 //Route to direct use to Registration form
@@ -24,7 +25,7 @@ router.post("/register",(req,res)=>
     const user = new userModel(newUser);
     user.save()
     .then(()=>{
-        res.redirect("/user-reg/profile")
+        res.redirect("/user-reg/login")
     })
     .catch(err=>console.log(`Error while inserting into data ${err}`));
 
@@ -119,6 +120,16 @@ router.get("/profile",isAuthenticated,(req,res)=> {
     res.render("user-reg/userDashboard");
     
 })
+
+
+router.get("/profile",isAuthenticated,(req,res)=> {
+
+    res.render("user-reg/adminDashboard");
+    
+})
+
+
+
 
 router.get("/logout",(req,res)=>{
     req.session.destroy();
