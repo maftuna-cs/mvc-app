@@ -122,19 +122,21 @@ router.post("/add-room",isAuthenticated,(req,res)=>
      room.save()
      .then((room)=>{
 
-        req.files.profilePic.name = `pro_pic_${room._id}${path.parse(req.files.profilePic.name).ext}`;
+        req.files.roomPhoto.name = `roomPhoto_${room._id}${path.parse(req.files.roomPhoto.name).ext}`;
 
-        req.files.profilePic.mv(`public/uploads/${req.files.profilePic.name}`)
+        req.files.roomPhoto.mv(`public/uploads/${req.files.roomPhoto.name}`)
         .then(()=>{
 
             roomModel.updateOne({_id:room._id},{
-                profilePic: req.files.profilePic.name
+                roomPhoto: req.files.roomPhoto.name
             })
             .then(()=>{
 
+                res.redirect(`/user-reg/roomsList`)
+ 
             })
 
-         res.redirect("/user-reg/roomsList")
+         
      })
 
     })
@@ -166,7 +168,8 @@ router.get("/roomsList",isAuthenticated,(req,res)=>
                     price:room.price,
                     description:room.description,
                     location:room.location,
-                    roomFeatured:room.roomFeatured
+                    roomFeatured:room.roomFeatured,
+                    roomPhoto: room.roomPhoto
                 }
         });
 

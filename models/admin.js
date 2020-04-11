@@ -30,10 +30,10 @@ const Schem = mongoose.Schema;
         type:String,
         default:"Open"
     },
-    photo:
+    roomPhoto:
     {
-        type:Date,
-        default:Date.now()
+        type:String
+
     }
   });
 
