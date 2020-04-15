@@ -22,3 +22,39 @@
 
     {{/each}}
 </section>
+
+
+
+<section class="room-list">
+
+ {{#each data}}
+
+    <div class="room-list-items">
+
+        <img src="/uploads/{{this.roomPhoto}}"> 
+
+        <p class="room-list-title">
+            {{this.titl}}
+        </p>
+
+            {{this.prc}}
+        </p>
+
+        <p class="room-list-desc">
+            {{this.descr}}
+        </p>
+
+         <p class="room-list-desc">
+            {{this.loc}}
+        </p>
+
+        <p class="room-list-price">
+             {{this.roomFeatured}} 
+        </p>
+
+        <a href="/user-reg/edit/{{this.id}}">Edit</a>
+    </div>
+
+    {{/each}}
+
+    </section>

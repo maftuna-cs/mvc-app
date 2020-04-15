@@ -1,30 +1,23 @@
-<h2>Update Task</h2>
-    <form method="POST" action="/task/update/{{_id}}?method=PUT">
+<h2>Update Room</h2>
+    <form method="POST" action="/user-reg/update/{{_id}}?method=PUT">
 
         <label>Title</label>
-        <input type="text" name="title" id="title" value="{{title}}" > <br><br>
+        <input type="text" name="titl" id="titl" value="{{titl}}"> <br><br>
+
+        <label>Price</label>
+        <input type="text" name="prc" id="prc" value="{{prc}}"> <br><br>
 
         <label>Description</label>
-        <textarea id="description" name="description">{{description}}</textarea><br><br>
+        <textarea id="descr" name="descr">{{descr}}</textarea><br><br>
 
-        <label>Due Date</label>
-        <input type="date" name="dueDate" id="dueDate" value="{{dueDate}}">{{dueDate}}<br><br>
+        <label>Location</label>
+        <input type="text" name="loc" id="loc" value={{loc}}> <br><br>
 
-        <label>Priority</label>
-        <select name="priority">
-            <option value="low" >Low</option>
-            <option value="medium" >Medium</option>
-            <option value="high" >High</option>
-        </select>
-        <br><br>
+        <label>Room</label>
+        <input type="text" name="roomFeatured" id="roomFeatured"> <br><br>
 
-        <label>Status</label>
-        <select name="status">
-            <option value="open">Open</option>
-            <option value="hold">On Hold</option>
-            <option value="completed">Completed</option>
-        </select>
-        <br><br>
+         <label>File Upload</label>
+        <input type="file" name="roomPhoto" id="roomPhoto"> <br><br>
 
-        <input type="submit" value="Update Task">
+        <input type="submit" value="Update Room">
     </form>

@@ -4,23 +4,23 @@ const Schem = mongoose.Schema;
 //This indicates the shape of the documents that will be entering the database
   const roomSchema = new Schem({
    
-    title:
+    titl:
     {
       type:String,
       required:true
     },
 
-    price: 
+    prc: 
     {
         type:String,
         required:true
     },
-    description:
+    descr:
     {
         type:String,
         required:true
     },
-    location:
+    loc:
     {
         type:String,
         required:true

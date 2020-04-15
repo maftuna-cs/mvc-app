@@ -103,10 +103,10 @@ router.get("/add-room",isAuthenticated,(req,res)=>
 router.post("/add-room",isAuthenticated,(req,res)=>
 {
         const newRoom = {
-            title : req.body.titl,
-            price : req.body.prc,
-            description : req.body.descr,
-            location : req.body.loc,
+            titl : req.body.titl,
+            prc : req.body.prc,
+            descr : req.body.descr,
+            loc : req.body.loc,
             roomFeatured : req.body.roomFeatured
             
         }
@@ -164,10 +164,10 @@ router.get("/roomsList",isAuthenticated,(req,res)=>
                 return {
 
                     id: room._id,
-                    title:room.title,
-                    price:room.price,
-                    description:room.description,
-                    location:room.location,
+                    titl:room.titl,
+                    prc:room.prc,
+                    descr:room.descr,
+                    loc:room.loc,
                     roomFeatured:room.roomFeatured,
                     roomPhoto: room.roomPhoto
                 }
@@ -175,7 +175,7 @@ router.get("/roomsList",isAuthenticated,(req,res)=>
 
 
 
-        res.render("user-reg/new-room",{
+        res.render("rooms/room-listing",{
            data : filteredRoom
         });
 
@@ -184,6 +184,46 @@ router.get("/roomsList",isAuthenticated,(req,res)=>
 
     
   
+});
+
+router.get("/edit/:id",(req,res)=>{
+
+    roomModel.findById(req.params.id)
+    .then((room)=>{
+
+        const {_id,titl,prc,descr,loc} = room;
+        res.render("user-reg/editRoom",{
+            _id,
+            titl,
+            prc,
+            descr,
+            loc 
+        })
+
+    })
+    .catch(err=>console.log(`Error happened when pulling from the database :${err}`));
+
+
+})
+
+router.put("/update/:id",(req,res)=>{
+
+    const room =
+    {
+        titl : req.body.titl,
+        prc : req.body.prc,
+        descr : req.body.descr,
+        loc : req.body.loc,
+        roomFeatured : req.body.roomFeatured
+    }
+
+    roomModel.updateOne({_id:req.params.id},room)
+    .then(()=>{
+        res.redirect("/user-reg/roomsList");
+    })
+    .catch(err=>console.log(`Error happened when updating data from the database :${err}`));
+
+
 });
 
 

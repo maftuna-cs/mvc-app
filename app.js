@@ -19,6 +19,21 @@ app.use(bodyParser.urlencoded({ extended: false })); //parse app
 app.engine('handlebars', exphbs());   //middleware
 app.set('view engine', 'handlebars');
 
+app.use((req,res,next)=>{
+
+  if(req.query.method=="PUT")
+  {
+      req.method="PUT"
+  }
+
+  else if(req.query.method=="DELETE")
+  {
+      req.method="DELETE"
+  }
+
+  next();
+})
+
 //load controllers
 // const generalController = require("./controllers/general");
 const roomsController = require("./controllers/room");
