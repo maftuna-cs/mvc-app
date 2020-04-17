@@ -1,5 +1,3 @@
-<h2>Rooms</h2>
-
 <section class="room-list">
 
  {{#each data}}
@@ -9,23 +7,25 @@
         <img src="/uploads/{{this.roomPhoto}}"> 
 
         <p class="room-list-title">
-            {{this.title}}
+            {{this.titl}}
         </p>
 
-            {{this.price}}
+            {{this.prc}}
         </p>
 
         <p class="room-list-desc">
-            {{this.description}}
+            {{this.descr}}
         </p>
 
          <p class="room-list-desc">
-            {{this.location}}
+            {{this.loc}}
         </p>
 
         <p class="room-list-price">
              {{this.roomFeatured}} 
         </p>
+
+        <a href="/roomz/edit/{{this.id}}">Edit</a>
     </div>
 
     {{/each}}

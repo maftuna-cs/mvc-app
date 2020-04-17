@@ -42,6 +42,6 @@ const Schem = mongoose.Schema;
     The model will allow you to perform CRUD operations on a given collection!!! 
   */
 
- const addRoomModel = mongoose.model('created room', roomSchema);
+ const roomModel = mongoose.model('created room', roomSchema);
 
- module.exports = addRoomModel;
+ module.exports = roomModel;

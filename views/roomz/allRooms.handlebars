@@ -1,0 +1,52 @@
+
+{{!-- ROOM LISTING PAGE --}}
+   <div>
+    <form method="POST" action="/roomz/search">
+        <div>
+            <label for="location"></label>
+           
+                <select name="location">
+                    <option value="" selected>search by location</option>
+                    <option value="Toronto">Toronto</option>
+                    <option value="Ottawa">Ottawa</option>
+                    <option value="Hamilton">Hamilton </option>
+                    <option value="London">London</option>
+           
+        </div>
+        <div>
+            <input type="submit" value="Search">
+        </div>
+    </form>
+</div> 
+<section class="room-list"></section>
+ {{#each data}}
+
+    <div class="room-list-items">
+
+        <img src="/uploads/{{this.roomPhoto}}"> 
+
+        <p class="room-list-title">
+            {{this.titl}}
+        </p>
+
+            {{this.prc}}
+        </p>
+
+        <p class="room-list-desc">
+            {{this.descr}}
+        </p>
+
+         <p class="room-list-desc">
+            {{this.loc}}
+        </p>
+
+        <p class="room-list-price">
+             {{this.roomFeatured}} 
+        </p>
+
+        <a href="/roomz/edit/{{this.id}}">Edit</a>
+    </div>
+
+    {{/each}}
+
+    </section>

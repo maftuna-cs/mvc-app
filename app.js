@@ -36,6 +36,7 @@ app.use((req,res,next)=>{
 
 //load controllers
 // const generalController = require("./controllers/general");
+const roomzController = require("./controllers/rooms");
 const roomsController = require("./controllers/room");
 const userRoutes = require("./controllers/user");
 
@@ -59,6 +60,8 @@ app.use((req,res,next)=>{
 app.use("/rooms",roomsController);
 
 app.use("/user-reg",userRoutes);
+
+app.use("/roomz",roomzController);
 
 
 
