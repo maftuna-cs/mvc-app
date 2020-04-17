@@ -1,24 +1,27 @@
-
-{{!-- ROOM LISTING PAGE --}}
+<section class="room-list-header">
+    <h1> Choose beautiful rooms to stay</h1>
+</section>
    <div>
     <form method="POST" action="/roomz/search">
         <div>
             <label for="location"></label>
-           
+            <li>
                 <select name="location">
                     <option value="" selected>search by location</option>
                     <option value="Toronto">Toronto</option>
                     <option value="Ottawa">Ottawa</option>
                     <option value="Hamilton">Hamilton </option>
                     <option value="London">London</option>
-           
+                </select>
+            </li>
         </div>
         <div>
             <input type="submit" value="Search">
         </div>
     </form>
 </div> 
-<section class="room-list"></section>
+
+<section class="room-list">
  {{#each data}}
 
     <div class="room-list-items">
@@ -42,6 +45,10 @@
 
         <p class="room-list-price">
              {{this.roomFeatured}} 
+        </p>
+
+        <p class="">
+             {{this.roomType}} 
         </p>
 
         <a href="/roomz/edit/{{this.id}}">Edit</a>
