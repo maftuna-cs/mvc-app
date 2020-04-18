@@ -484,7 +484,6 @@ h4 {
 /* REGISTER */
 
 
-
 .acnt{
   
   display: flex;
@@ -662,9 +661,14 @@ h4 {
 
 
 .enter-info {
-  width: 40%;
+  
   padding: 1.7em 1.5em 2.5em 1.5em;
-  margin-bottom: 2em;
+  margin: 2em auto;
+  background: #fff;
+  width: 35em;
+  border-radius: 0.5em;
+  box-shadow: 1px 3px 20px rgba(17, 17, 17, 0.1);
+  
 }
 
 .enter-info input {
@@ -676,6 +680,7 @@ h4 {
   border: 1px solid #394872;
   border-radius: 3px;
   margin-bottom: 1em;
+  display: inline-block;
 }
 
 .enter-info-submit input {
@@ -697,6 +702,17 @@ h4 {
   padding-bottom: .5em;
 }
 
+textarea {
+width: 46.5em;
+height: 45px;
+overflow: auto;
+border-radius: 3px;
+outline: none;
+border: 1px solid #394872;
+padding: 1em;
+}
+
+
 /* LOG IN */
 
 
@@ -707,7 +723,7 @@ form#login-form {
   overflow: hidden;
   position: relative;
   border-radius: 0.5em;
-  box-shadow: 0 0 0.3em rgb(131, 131, 131);
+  box-shadow: 1px 3px 20px rgba(17, 17, 17, 0.1);
 }
 
 form#login-form div.left {
@@ -1182,10 +1198,14 @@ div.right a.google-plus:hover {
   color: #fff;
 }
 
+
 .box-btn--txt {
   padding: 0 25px;
   line-height: 56px;
   letter-spacing: 0.1em;
+  color: #fff;
+  text-decoration: none;
+  
 }
 
 .prg-title {
@@ -1585,14 +1605,11 @@ div.right a.google-plus:hover {
   }
 
   .enter-info {
-    width: 40%;
-    
-    padding: 1.7em 1.5em 2.5em 1.5em;
-    margin-bottom: 2em;
+    width: 80%;
   }
   
   .enter-info input {
-    width: 200%;
+   
     height: 45px;
     padding: 1em;
     line-height: 1.4;
@@ -1621,6 +1638,11 @@ div.right a.google-plus:hover {
     font-size: .7em;
     padding-bottom: .5em;
   } 
+
+  textarea {
+    width: 32em;
+    height: 45px;
+    }
 
 
 

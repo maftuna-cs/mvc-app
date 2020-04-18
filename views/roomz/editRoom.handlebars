@@ -1,5 +1,5 @@
-<h2>Update Room</h2>
-    <form method="POST" action="/roomz/update/{{_id}}?method=PUT">
+<h2 class="prg-title">Update Room</h2>
+    <form method="POST" action="/roomz/update/{{_id}}?method=PUT" class="enter-info">
 
         <label>Title</label>
         <input type="text" name="titl" id="titl" value="{{titl}}"> <br><br>
@@ -8,7 +8,7 @@
         <input type="text" name="prc" id="prc" value="{{prc}}"> <br><br>
 
         <label>Description</label>
-        <textarea id="descr" name="descr">{{descr}}</textarea><br><br>
+        <div class="txtarea"><textarea id="descr" name="descr">{{descr}}</textarea></div><br><br>
 
         <label>Location</label>
         <input type="text" name="loc" id="loc" value={{loc}}> <br><br>

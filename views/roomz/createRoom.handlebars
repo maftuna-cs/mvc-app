@@ -1,6 +1,8 @@
-<h2>Add Task</h2>
+<h2 class="prg-title">Add New Rooms</h2>
+
+<div></div>
     
-    <form method="POST" action="/roomz/add-room" enctype="multipart/form-data">
+    <form method="POST" action="/roomz/add-room" enctype="multipart/form-data" class="enter-info">
 
         <label>Title</label>
         <input type="text" name="titl" id="titl"> <br><br>
@@ -23,9 +25,12 @@
             <option value="featured">Featured</option>
         </select> --}}
 
-         <label>File Upload</label>
-        <input type="file" name="roomPhoto" id="roomPhoto"> <br><br>
-        
+         <label class="file">
+             File Upload
+        <input type="file" name="roomPhoto" id="roomPhoto">
+        <span class="file-custom"></span>
+        </label>
+        <br><br>
 
         <input type="submit" value="Add">
 

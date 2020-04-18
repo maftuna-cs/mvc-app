@@ -28,7 +28,7 @@ const Schem = mongoose.Schema;
     roomFeatured:
     {
         type:String,
-        default:"Open"
+        default:"Available"
     },
     // roomType:
     // {

@@ -1,57 +1,62 @@
 <section class="room-list-header">
     <h1> Choose beautiful rooms to stay</h1>
 </section>
-   <div>
+<div>
     <form method="POST" action="/roomz/search" class="room-search-form">
         <div class="location search-drpdown">
             <label for="location"></label>
-                <select name="location">
-                    <option value="" selected>search by location</option>
-                    <option value="Toronto">Toronto</option>
-                    <option value="Ottawa">Ottawa</option>
-                    <option value="Hamilton">Hamilton </option>
-                    <option value="London">London</option>
-                </select>
+            <select name="location">
+                <option value="" selected>search by location</option>
+                <option value="Toronto">Toronto</option>
+                <option value="Ottawa">Ottawa</option>
+                <option value="Hamilton">Hamilton </option>
+                <option value="London">London</option>
+            </select>
         </div>
         <div>
             <input type="submit" value="Search" class="search-btn">
         </div>
     </form>
-</div> 
+</div>
 
 <section class="room-list">
- {{#each data}}
+    {{#each data}}
 
     <div class="room-list-items">
 
-        <img src="/uploads/{{this.roomPhoto}}" class="room-img"> 
+        <img src="/uploads/{{this.roomPhoto}}" class="room-img">
 
         <p class="room-list-title">
             {{this.titl}}
-        </p>
 
-            {{this.prc}}
-        </p>
+            <p class="featured-prc">$ <strong class="prc">{{this.prc}}</strong> / pernight</p>
 
-        <p class="room-list-desc">
-            {{this.descr}}
-        </p>
+            <p class="room-list-desc">
+                {{this.descr}}
+            </p>
 
-         <p class="room-list-desc">
-            {{this.loc}}
-        </p>
+            <p>(4)<span class="fa fa-star checked"></span></p>
 
-        <p class="room-list-price">
+            <p class="room-list-desc">
+                {{this.loc}}
+            </p>
+
+            {{!-- <p class="room-list-price">
              {{this.roomFeatured}} 
         </p>
 
-        {{!-- <p class="">
+        <p class="">
              {{this.roomType}} 
         </p> --}}
 
-        <a href="/roomz/edit/{{this.id}}">Edit</a>
+            <div class="box-btn">
+                {{!-- <div class="box-btn--txt">Book Now</div> --}}
+                 <a href="/roomz/edit/{{this.id}}" class="box-btn--txt">Edit Rooms</a>
+            </div>
+
+            {{!-- <a href="/roomz/edit/{{this.id}}">Edit</a> --}}
     </div>
 
     {{/each}}
 
-    </section>
+</section>

@@ -1,21 +1,29 @@
   
-<h2>Welcome {{user.firstName}} {{user.lastName}}</h2>
+{{!-- <h2>Welcome {{user.firstName}} {{user.lastName}}</h2> --}}
 
-<main> 
-   {{!-- {{#each data}}
-    <div>
-        First Name : {{this.firstName}}
+<section class="dashb">
+   <div class="dashb-p">
+      <div class="style-under"></div>
+      <h2><i class="fas fa-home"></i> Welcome to Roof Home <br />{{user.firstName}} {{user.lastName}}!</h2>
+      <p>We specialize in storytelling of all forms. No matter your medium, we show you how to bring your art to life:
+        on page, stage, screen, or speaker. Get hands-on experience through Live Labs, regular performances, and
+        ongoing work-integrated learning, and learn the industry-specific business skills needed wherever your career
+        and your story take you. Your professional future starts here.</p>
+      {{!-- <a href="/roomz/add-room">
+        <button class="dashb-btn">Create a Room</button></a>
+       <a href="/"> <button class="dashb-btn">Back to Home</button></a> --}}
+      
+
     </div>
+    </section>
 
-    <div>
-        Last Name : {{this.lastName}}
-    </div>
-{{/each}} --}}
-
-</main>
-<!-- User Profile pic will go here
-<img src=""> -->
-
-<div>
-    {{!-- <a href="/task/list">Task Dashboard </a> --}}
-</div>
+    <section>
+    <div class="user-essentials"></div>
+      <ul class="materials">
+          <li><a href="" class="blue"><i class="fas fa-check-double"></i></i> Bookings</a></li>
+          <li><a href="" class="orange"><i class="fas fa-gift"></i> Gift Cards</a></li>
+          <li><a href="" class="green"><i class="fas fa-handshake"></i> Payment Options</a></li>
+          <li><a href="" class="red"><i class="fas fa-angle-double-right"></i></i> Suggestions</a></li>
+      </ul>
+  </div>
+  </section>
