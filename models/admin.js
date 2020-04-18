@@ -30,11 +30,11 @@ const Schem = mongoose.Schema;
         type:String,
         default:"Open"
     },
-    roomType:
-    {
-      type:String,
-      required:true
-    },
+    // roomType:
+    // {
+    //   type:String,
+    //   required:true
+    // },
     roomPhoto:
     {
         type:String

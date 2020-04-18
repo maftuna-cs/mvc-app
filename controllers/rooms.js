@@ -20,8 +20,7 @@ router.post("/add-room",isAuthenticated,(req,res)=>
             prc : req.body.prc,
             descr : req.body.descr,
             loc : req.body.loc,
-            roomFeatured : req.body.roomFeatured,
-            roomType : req.body.roomType
+            roomFeatured : req.body.roomFeatured
             
         }
 
@@ -69,8 +68,7 @@ router.get("/roomsList",isAuthenticated,(req,res)=>
                     descr:room.descr,
                     loc:room.loc,
                     roomFeatured:room.roomFeatured,
-                    roomPhoto: room.roomPhoto,
-                    roomType : room.roomType
+                    roomPhoto: room.roomPhoto
                 }
         });
 
@@ -98,8 +96,7 @@ router.get("/edit/:id",(req,res)=>{
             titl,
             prc,
             descr,
-            loc,
-            roomType 
+            loc
         })
 
     })
@@ -117,7 +114,7 @@ router.put("/update/:id",(req,res)=>{
         descr : req.body.descr,
         loc : req.body.loc,
         roomFeatured : req.body.roomFeatured,
-        roomType : req.body.roomType
+       
     }
 
     roomModel.updateOne({_id:req.params.id},room)
@@ -140,44 +137,7 @@ router.delete("/delete/:id",(req,res)=>{
 });
 
 
-router.get("/featured",isAuthenticated,(req,res)=>
-{
-    //pull from the database , get the results that was returned and then inject that results into
-    //the roomDashboard
 
-    roomModel.find({roomType : true})
-    .then((rooms)=>{
-
-        const filteredRoom =   rooms.map(room=>{
-
-                return {
-
-                    id: room._id,
-                    titl:room.titl,
-                    prc:room.prc,
-                    descr:room.descr,
-                    loc:room.loc,
-                    roomFeatured:room.roomFeatured,
-                    roomPhoto: room.roomPhoto,
-                    roomType : room.roomType
-                }
-        });
-
-
-
-        res.render("index",{
-           data : filteredRoom,
-           title: "Home",
-           headingInfo : "Home Page",
-            featured: filteredRoom
-        });
-
-    })
-    .catch(err=>console.log(`Error happened when pulling from the database :${err}`));
-
-    
-  
-});
 
 
 router.get("/allRooms",(req,res)=>{
@@ -193,8 +153,8 @@ router.get("/allRooms",(req,res)=>{
                 descr:room.descr,
                 loc:room.loc,
                 roomFeatured:room.roomFeatured,
-                roomPhoto: room.roomPhoto,
-                roomType : room.roomType
+                roomPhoto: room.roomPhoto
+              
             }
         });
 
@@ -210,6 +170,8 @@ router.get("/allRooms",(req,res)=>{
     
 });
 
+
+
 router.post("/search",(req,res)=>
 {
     roomModel.find({loc : req.body.location})
@@ -223,8 +185,8 @@ router.post("/search",(req,res)=>
                 descr:room.descr,
                 loc:room.loc,
                 roomFeatured:room.roomFeatured,
-                roomPhoto: room.roomPhoto,
-                roomType : req.body.roomType
+                roomPhoto: room.roomPhoto
+                
             }
         });
 

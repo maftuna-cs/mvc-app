@@ -2,10 +2,9 @@
     <h1> Choose beautiful rooms to stay</h1>
 </section>
    <div>
-    <form method="POST" action="/roomz/search">
-        <div>
+    <form method="POST" action="/roomz/search" class="room-search-form">
+        <div class="location search-drpdown">
             <label for="location"></label>
-            <li>
                 <select name="location">
                     <option value="" selected>search by location</option>
                     <option value="Toronto">Toronto</option>
@@ -13,10 +12,9 @@
                     <option value="Hamilton">Hamilton </option>
                     <option value="London">London</option>
                 </select>
-            </li>
         </div>
         <div>
-            <input type="submit" value="Search">
+            <input type="submit" value="Search" class="search-btn">
         </div>
     </form>
 </div> 
@@ -26,7 +24,7 @@
 
     <div class="room-list-items">
 
-        <img src="/uploads/{{this.roomPhoto}}"> 
+        <img src="/uploads/{{this.roomPhoto}}" class="room-img"> 
 
         <p class="room-list-title">
             {{this.titl}}
@@ -47,9 +45,9 @@
              {{this.roomFeatured}} 
         </p>
 
-        <p class="">
+        {{!-- <p class="">
              {{this.roomType}} 
-        </p>
+        </p> --}}
 
         <a href="/roomz/edit/{{this.id}}">Edit</a>
     </div>
