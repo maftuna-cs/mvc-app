@@ -1,4 +1,10 @@
+
+   <div class="back-create">
+        <a href="/roomz/add-room"  class="search-btn">Click to adding a room</a>
+    </div>
+
 <section class="room-list">
+  
 
  {{#each data}}
 
@@ -28,14 +34,13 @@
         <p class="">
              {{this.roomType}} 
         </p>
-
-        <a href="/roomz/edit/{{this.id}}">Edit</a>
+        <div class="box-btn">
+        <a href="/roomz/edit/{{this.id}}" class="box-btn--txt">Edit</a>
+        </div>
     </div>
 
     {{/each}}
 
-    <div>
-        <a href="/roomz/add-room">Edit</a>
-    </div>
+   
     
     </section>

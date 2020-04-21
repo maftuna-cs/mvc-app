@@ -201,5 +201,26 @@ router.post("/search",(req,res)=>
     
 });
 
+// router.post("/add-room",(req,res)=>
+// {
+// allRoomModel.find({featuredRoom : })
+//     .then((rooms)=>{
+//         const filteredRoom = rooms.map((room)=>{
+//             return {
+//                 id: room._id,
+//                 titl:room.titl,
+//                 prc:room.prc,
+//                 descr:room.descr,
+//                 loc:room.loc,
+//                 roomFeatured:room.roomFeatured,
+//                 roomPhoto: room.roomPhoto
+//             }
+//         })
+//         res.render("index",{
+//             title: "Home",
+//             headingInfo : "Home Page",
+//             featured: filteredRoom
+//         });
 
+//     });
 module.exports = router;
